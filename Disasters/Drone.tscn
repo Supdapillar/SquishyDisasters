@@ -1,0 +1,129 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Squishy Battle/Disasters/Drone/Drone2.png" type="Texture" id=1]
+[ext_resource path="res://Disasters/Drone.cs" type="Script" id=2]
+[ext_resource path="res://Squishy Battle/Disasters/Drone/Thruster/Thruster2.png" type="Texture" id=3]
+[ext_resource path="res://Squishy Battle/Disasters/Drone/Thruster/Thruster4.png" type="Texture" id=4]
+[ext_resource path="res://Squishy Battle/Disasters/Drone/Thruster/Thruster5.png" type="Texture" id=5]
+[ext_resource path="res://Squishy Battle/Disasters/Drone/DroneInside.png" type="Texture" id=6]
+[ext_resource path="res://Squishy Battle/Disasters/Drone/Thruster/Thruster1.png" type="Texture" id=7]
+[ext_resource path="res://Squishy Battle/Disasters/Drone/Drone1.png" type="Texture" id=8]
+[ext_resource path="res://Squishy Battle/Disasters/Drone/Drone3.png" type="Texture" id=9]
+[ext_resource path="res://Squishy Battle/Disasters/Drone/Thruster/Thruster6.png" type="Texture" id=10]
+[ext_resource path="res://Squishy Battle/Disasters/Drone/Thruster/Thruster7.png" type="Texture" id=11]
+[ext_resource path="res://Squishy Battle/Disasters/Drone/Thruster/Thruster8.png" type="Texture" id=12]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 8 ), ExtResource( 1 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "Normal",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "Startup",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "TurnOff",
+"speed": 10.0
+} ]
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 5.32898
+
+[sub_resource type="Gradient" id=5]
+offsets = PoolRealArray( 0.0166667, 1 )
+colors = PoolColorArray( 0.754395, 0.754395, 0.754395, 1, 0, 0, 0, 0 )
+
+[node name="Drone" type="Node2D"]
+scale = Vector2( 4, 4 )
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+frame = 2
+playing = true
+
+[node name="DroneInside" type="Sprite" parent="."]
+texture = ExtResource( 6 )
+
+[node name="Thruster" type="Node2D" parent="."]
+
+[node name="ThrusterBR" type="AnimatedSprite" parent="Thruster"]
+position = Vector2( 2.5, 2.5 )
+frames = SubResource( 3 )
+animation = "Normal"
+frame = 1
+playing = true
+centered = false
+
+[node name="ThrusterTR" type="AnimatedSprite" parent="Thruster"]
+position = Vector2( 6.5, -6.5 )
+rotation = -1.5708
+frames = SubResource( 3 )
+animation = "Normal"
+playing = true
+
+[node name="ThrusterBL" type="AnimatedSprite" parent="Thruster"]
+position = Vector2( -2.5, 2.5 )
+rotation = 1.5708
+frames = SubResource( 3 )
+animation = "Normal"
+playing = true
+centered = false
+
+[node name="ThrusterTL" type="AnimatedSprite" parent="Thruster"]
+position = Vector2( -6.5, -6.5 )
+rotation = 3.14159
+frames = SubResource( 3 )
+animation = "Normal"
+playing = true
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+shape = SubResource( 4 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+visible = false
+position = Vector2( -0.125, 0 )
+emitting = false
+amount = 30
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.3
+local_coords = false
+spread = 180.0
+initial_velocity = 15.0
+initial_velocity_random = 0.45
+angular_velocity = 720.0
+angular_velocity_random = 1.0
+linear_accel = 5.0
+linear_accel_random = 1.0
+scale_amount = 4.0
+color_ramp = SubResource( 5 )
+
+[node name="Label" type="Label" parent="."]
+visible = false
+margin_left = 24.0
+margin_top = -37.0
+margin_right = 226.0
+margin_bottom = -23.0
+
+[connection signal="animation_finished" from="Thruster/ThrusterBR" to="." method="_on_ThrusterBR_animation_finished"]
+[connection signal="animation_finished" from="Thruster/ThrusterTR" to="." method="_on_ThrusterTR_animation_finished"]
+[connection signal="animation_finished" from="Thruster/ThrusterBL" to="." method="_on_ThrusterBL_animation_finished"]
+[connection signal="animation_finished" from="Thruster/ThrusterTL" to="." method="_on_ThrusterTL_animation_finished"]

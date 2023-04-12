@@ -1,0 +1,270 @@
+[gd_scene load_steps=36 format=2]
+
+[ext_resource path="res://Squishy Battle/PICO-8 mono.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://CursorButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Squishy Battle/Buttons/CharacterMaker/Hat/Click.png" type="Texture" id=3]
+[ext_resource path="res://Squishy Battle/Buttons/CharacterMaker/Hat/Hover.png" type="Texture" id=4]
+[ext_resource path="res://Squishy Battle/Buttons/CharacterMaker/CSBoarder.png" type="Texture" id=5]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Squishy Battle/Buttons/CharacterMaker/Hat/Normal.png" type="Texture" id=7]
+[ext_resource path="res://Squishy Battle/Buttons/CharacterMaker/Left Arrow/Click.png" type="Texture" id=8]
+[ext_resource path="res://Squishy Battle/Buttons/CharacterMaker/Left Arrow/Normal.png" type="Texture" id=9]
+[ext_resource path="res://Squishy Battle/Buttons/CharacterMaker/Left Arrow/Hover.png" type="Texture" id=10]
+[ext_resource path="res://Squishy Battle/Buttons/CharacterMaker/Hue/Normal.png" type="Texture" id=11]
+[ext_resource path="res://Squishy Battle/Buttons/CharacterMaker/Hue/Hover.png" type="Texture" id=12]
+[ext_resource path="res://Squishy Battle/Buttons/CharacterMaker/Hue/Click.png" type="Texture" id=13]
+[ext_resource path="res://Squishy Battle/Buttons/CharacterMaker/Right Arrow/Click.png" type="Texture" id=14]
+[ext_resource path="res://Squishy Battle/Buttons/CharacterMaker/Right Arrow/Normal.png" type="Texture" id=15]
+[ext_resource path="res://Squishy Battle/Buttons/CharacterMaker/Right Arrow/Hover.png" type="Texture" id=16]
+[ext_resource path="res://Squishy Battle/Buttons/CharacterMaker/Ready/Click.png" type="Texture" id=17]
+[ext_resource path="res://Squishy Battle/Buttons/CharacterMaker/CSBoarderColor.png" type="Texture" id=18]
+[ext_resource path="res://Squishy Battle/Buttons/CharacterMaker/Unready/Normal.png" type="Texture" id=19]
+[ext_resource path="res://Squishy Battle/Buttons/CharacterMaker/Ready/Normal.png" type="Texture" id=20]
+[ext_resource path="res://Squishy Battle/Buttons/CharacterMaker/Ready/Hover.png" type="Texture" id=22]
+[ext_resource path="res://CharacterMaker.cs" type="Script" id=23]
+
+[sub_resource type="Theme" id=15]
+
+[sub_resource type="DynamicFont" id=1]
+size = 8
+extra_spacing_char = 1
+font_data = ExtResource( 1 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Click",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Hover",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "Normal",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 5.47113, 2.9974 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "Click",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "Hover",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "Normal",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=9]
+radius = 3.0
+
+[sub_resource type="CircleShape2D" id=10]
+radius = 3.0
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "Click",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "Hover",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "Normal",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "Click",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "Hover",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "Normal",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=11]
+radius = 3.0
+
+[sub_resource type="CircleShape2D" id=12]
+radius = 3.0
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "Click",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ) ],
+"loop": true,
+"name": "Hover",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ) ],
+"loop": true,
+"name": "Normal",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 11.5356, 5.04396 )
+
+[node name="CharacterMaker" type="Node2D"]
+scale = Vector2( 12, 12 )
+script = ExtResource( 23 )
+
+[node name="Border" type="Sprite" parent="."]
+texture = ExtResource( 5 )
+
+[node name="BorderColor" type="Sprite" parent="."]
+texture = ExtResource( 18 )
+
+[node name="PlayerNumberShadow" type="Label" parent="."]
+anchor_top = 0.005
+anchor_right = 0.917
+anchor_bottom = 0.005
+margin_left = -3.55314
+margin_top = -32.9131
+margin_right = 13.4469
+margin_bottom = -21.9131
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( -0.373974, -4.80952 )
+theme = SubResource( 15 )
+custom_colors/font_color = Color( 0, 0, 0, 0 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/line_spacing = 0
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 1 )
+text = " 1"
+
+[node name="PlayerNumber" type="Label" parent="."]
+anchor_top = 0.005
+anchor_right = 0.917
+anchor_bottom = 0.005
+margin_left = -3.62411
+margin_top = -32.7755
+margin_right = 13.3759
+margin_bottom = -21.7755
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( -0.373974, -4.80952 )
+theme = SubResource( 15 )
+custom_colors/font_color_shadow = Color( 0.501961, 0, 0.501961, 0 )
+custom_constants/shadow_offset_x = 0
+custom_constants/line_spacing = 0
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 1 )
+text = " 1"
+
+[node name="Player" parent="." instance=ExtResource( 6 )]
+position = Vector2( 0.5, 19 )
+scale = Vector2( 2, 2 )
+collision_layer = 0
+collision_mask = 0
+Gravity = 0.0
+
+[node name="HatButton" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, -22 )
+frames = SubResource( 2 )
+
+[node name="CollisionShape2D" parent="HatButton/Area2D" index="0"]
+position = Vector2( 0, -0.0215168 )
+shape = SubResource( 3 )
+
+[node name="HLArrow" parent="." instance=ExtResource( 2 )]
+position = Vector2( -4.5, -15 )
+frames = SubResource( 4 )
+
+[node name="CollisionShape2D" parent="HLArrow/Area2D" index="0"]
+position = Vector2( 0.00449371, -0.0283452 )
+shape = SubResource( 9 )
+
+[node name="CLArrow" parent="." instance=ExtResource( 2 )]
+position = Vector2( -4.5, 2 )
+frames = SubResource( 4 )
+
+[node name="CollisionShape2D" parent="CLArrow/Area2D" index="0"]
+position = Vector2( 0.00449371, -0.0283452 )
+shape = SubResource( 10 )
+
+[node name="HueButton" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, -5 )
+frames = SubResource( 5 )
+
+[node name="CollisionShape2D" parent="HueButton/Area2D" index="0"]
+position = Vector2( 0.0208261, -0.018434 )
+shape = SubResource( 3 )
+
+[node name="HRArrow" parent="." instance=ExtResource( 2 )]
+position = Vector2( 3.5, 2 )
+frames = SubResource( 6 )
+
+[node name="CollisionShape2D" parent="HRArrow/Area2D" index="0"]
+position = Vector2( 0.00449371, -0.0283452 )
+shape = SubResource( 11 )
+
+[node name="CRArrow" parent="." instance=ExtResource( 2 )]
+position = Vector2( 3.5, -15 )
+frames = SubResource( 6 )
+
+[node name="CollisionShape2D" parent="CRArrow/Area2D" index="0"]
+position = Vector2( 0.00449371, -0.0283452 )
+shape = SubResource( 12 )
+
+[node name="Ready" parent="." instance=ExtResource( 2 )]
+position = Vector2( 0, 30 )
+frames = SubResource( 7 )
+
+[node name="CollisionShape2D" parent="Ready/Area2D" index="0"]
+position = Vector2( 0.00571871, 0.0262928 )
+shape = SubResource( 13 )
+
+[node name="Readied" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 19 )
+
+[connection signal="ButtonReleased" from="HatButton" to="." method="_on_HatButton_ButtonReleased"]
+[connection signal="ButtonReleased" from="HLArrow" to="." method="_on_HLArrow_ButtonReleased"]
+[connection signal="ButtonReleased" from="CLArrow" to="." method="_on_CLArrow_ButtonReleased"]
+[connection signal="ButtonReleased" from="HueButton" to="." method="_on_HueButton_ButtonReleased"]
+[connection signal="ButtonReleased" from="HRArrow" to="." method="_on_HRArrow_ButtonReleased"]
+[connection signal="ButtonReleased" from="CRArrow" to="." method="_on_CRArrow_ButtonReleased"]
+[connection signal="ButtonReleased" from="Ready" to="." method="_on_Ready_ButtonReleased"]
+
+[editable path="Player"]
+[editable path="HatButton"]
+[editable path="HLArrow"]
+[editable path="CLArrow"]
+[editable path="HueButton"]
+[editable path="HRArrow"]
+[editable path="CRArrow"]
+[editable path="Ready"]

@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Squishy Battle/PICO-8 mono.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://MapVote.cs" type="Script" id=2]
+[ext_resource path="res://Squishy Battle/Buttons/Title/Map Vote.png" type="Texture" id=3]
+[ext_resource path="res://MapDisplay.tscn" type="PackedScene" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+extra_spacing_char = 1
+font_data = ExtResource( 1 )
+
+[node name="MapVote" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -838, -139 )
+rect_clip_content = true
+script = ExtResource( 2 )
+
+[node name="Title" type="Sprite" parent="."]
+position = Vector2( 960, 540 )
+scale = Vector2( 12, 12 )
+texture = ExtResource( 3 )
+
+[node name="Counter" type="Label" parent="Title"]
+margin_left = -11.0833
+margin_top = -28.75
+margin_right = 28.9167
+margin_bottom = -7.74997
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color_shadow = Color( 0.501961, 0.501961, 1, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/line_spacing = 1
+custom_constants/shadow_offset_y = 2
+custom_fonts/font = SubResource( 1 )
+text = " 9"
+
+[node name="MapDisplay0" parent="." instance=ExtResource( 6 )]
+rect_clip_content = true
+
+[node name="MapDisplay1" parent="." instance=ExtResource( 6 )]
+margin_left = 642.0
+margin_right = -642.0
+rect_clip_content = true
+
+[node name="CollisionShape2D" parent="MapDisplay1/MapButton/Area2D" index="0"]
+position = Vector2( 2, 269.5 )
+
+[node name="MapDisplay2" parent="." instance=ExtResource( 6 )]
+margin_left = 1288.0
+margin_right = -2.0
+rect_clip_content = true
+
+[node name="MapCountdown" type="Timer" parent="."]
+autostart = true
+
+[connection signal="PlayerPressed" from="MapDisplay0" to="." method="_on_MapDisplay0_PlayerPressed"]
+[connection signal="PlayerPressed" from="MapDisplay1" to="." method="_on_MapDisplay1_PlayerPressed"]
+[connection signal="PlayerPressed" from="MapDisplay2" to="." method="_on_MapDisplay2_PlayerPressed"]
+[connection signal="timeout" from="MapCountdown" to="." method="_on_MapCountdown_timeout"]
+
+[editable path="MapDisplay1"]
+[editable path="MapDisplay1/MapButton"]

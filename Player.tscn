@@ -1,0 +1,264 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://Squishy Battle/Player/PlayerMoving.png" type="Texture" id=1]
+[ext_resource path="res://Player.cs" type="Script" id=2]
+[ext_resource path="res://Squishy Battle/Player/Player.png" type="Texture" id=3]
+[ext_resource path="res://Squishy Battle/Player/PlayerInside.png" type="Texture" id=4]
+[ext_resource path="res://Squishy Battle/Player/ChrismasHat.png" type="Texture" id=5]
+[ext_resource path="res://Squishy Battle/Player/Glasses.png" type="Texture" id=6]
+[ext_resource path="res://Squishy Battle/Player/Monical.png" type="Texture" id=7]
+[ext_resource path="res://Squishy Battle/Player/Nose.png" type="Texture" id=8]
+[ext_resource path="res://Squishy Battle/PICO-8 mono.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://Squishy Battle/Player/UI/Powerup UI.png" type="Texture" id=10]
+[ext_resource path="res://Squishy Battle/Powerups/Shield.png" type="Texture" id=11]
+[ext_resource path="res://Squishy Battle/Parachute/Parachute3.png" type="Texture" id=12]
+[ext_resource path="res://Squishy Battle/Parachute/Parachute1.png" type="Texture" id=13]
+[ext_resource path="res://Squishy Battle/Parachute/Parachute2.png" type="Texture" id=14]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 3, 3 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "Moving",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Standing",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 3, 3 )
+
+[sub_resource type="StreamTexture" id=6]
+load_path = "res://.import/CatEars.png-d7857b684f660946f8f4571c015f3e2f.stex"
+
+[sub_resource type="StreamTexture" id=5]
+load_path = "res://.import/Mustash.png-39265d56bc0bf217d51933f0ada67f2b.stex"
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 6 ) ],
+"loop": true,
+"name": "CatEars",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "ChrismasHat",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "ClownNose",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "Glasses",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "Monical",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 5 ) ],
+"loop": true,
+"name": "Mustash",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=15]
+font_data = ExtResource( 9 )
+
+[sub_resource type="StyleBoxFlat" id=16]
+bg_color = Color( 1, 0, 0, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0, 0, 0, 1 )
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=17]
+bg_color = Color( 0.25098, 0, 0, 1 )
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="DynamicFont" id=18]
+size = 4
+use_mipmaps = true
+font_data = ExtResource( 9 )
+
+[sub_resource type="Gradient" id=19]
+colors = PoolColorArray( 0.501961, 0, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="SpriteFrames" id=20]
+animations = [ {
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "Parachute",
+"speed": 6.0
+} ]
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( -17, -2 )
+scale = Vector2( 4, 4 )
+collision_layer = 2
+collision_mask = 19
+script = ExtResource( 2 )
+Gravity = 400.0
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 2 )
+animation = "Moving"
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+
+[node name="PlayerCollider" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCollider"]
+shape = SubResource( 3 )
+
+[node name="Cosmetics" type="AnimatedSprite" parent="."]
+visible = false
+frames = SubResource( 4 )
+animation = "ClownNose"
+
+[node name="PlayerStats" type="CanvasLayer" parent="."]
+
+[node name="Powerup UI" type="Sprite" parent="PlayerStats"]
+visible = false
+position = Vector2( 16, 98 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 10 )
+
+[node name="HealthBar" type="ProgressBar" parent="PlayerStats"]
+margin_top = 24.0
+margin_right = 120.0
+margin_bottom = 52.0
+rect_pivot_offset = Vector2( 60, 0 )
+custom_colors/font_color_shadow = Color( 0.839216, 0.0705882, 0.0705882, 1 )
+custom_fonts/font = SubResource( 15 )
+custom_styles/fg = SubResource( 16 )
+custom_styles/bg = SubResource( 17 )
+step = 1.0
+value = 6.0
+allow_greater = true
+percent_visible = false
+
+[node name="ColorRect" type="ColorRect" parent="PlayerStats/HealthBar"]
+margin_top = 28.0
+margin_right = 132.0
+margin_bottom = 60.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="HP Label" type="Label" parent="PlayerStats/HealthBar"]
+margin_top = -24.0
+margin_right = 120.0
+margin_bottom = -4.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 15 )
+text = "P1-HP"
+align = 1
+
+[node name="Health Percent" type="Label" parent="PlayerStats/HealthBar"]
+margin_top = 4.0
+margin_right = 120.0
+margin_bottom = 24.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 15 )
+text = "500%"
+align = 1
+
+[node name="Speed" type="Label" parent="PlayerStats/HealthBar"]
+margin_top = 32.0
+margin_right = 40.0
+margin_bottom = 53.0
+rect_scale = Vector2( 4, 4 )
+custom_colors/font_color = Color( 0, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0.501961, 0.501961, 1 )
+custom_constants/shadow_offset_x = 0
+custom_fonts/font = SubResource( 18 )
+text = "+0"
+
+[node name="Health" type="Label" parent="PlayerStats/HealthBar"]
+margin_left = 88.0
+margin_top = 32.0
+margin_right = 128.0
+margin_bottom = 53.0
+rect_scale = Vector2( 4, 4 )
+input_pass_on_modal_close_click = false
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.501961, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_fonts/font = SubResource( 18 )
+text = "+0"
+
+[node name="Jump" type="Label" parent="PlayerStats/HealthBar"]
+margin_left = 44.0
+margin_top = 32.0
+margin_right = 84.0
+margin_bottom = 53.0
+rect_scale = Vector2( 4, 4 )
+custom_colors/font_color = Color( 0, 1, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0.501961, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_fonts/font = SubResource( 18 )
+text = "+0
+"
+
+[node name="Coins" type="Label" parent="PlayerStats/HealthBar"]
+margin_left = 4.0
+margin_top = -52.0
+margin_right = 44.0
+margin_bottom = -31.0
+rect_scale = Vector2( 4, 4 )
+custom_colors/font_color = Color( 1, 0.760784, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.890196, 0.447059, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_fonts/font = SubResource( 18 )
+text = "+0 COINS"
+
+[node name="Shield" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 11 )
+
+[node name="ShieldParticles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 50
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 1.0
+local_coords = false
+emission_shape = 1
+emission_sphere_radius = 7.3
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 25.0
+initial_velocity_random = 1.0
+angular_velocity = 180.72
+angular_velocity_random = 1.0
+orbit_velocity = 0.1
+orbit_velocity_random = 1.0
+scale_amount = 4.0
+color_ramp = SubResource( 19 )
+
+[node name="Parachute" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 0, -6 )
+frames = SubResource( 20 )
+animation = "Parachute"
+
+[connection signal="area_entered" from="PlayerCollider" to="." method="_on_Area2D_area_entered"]

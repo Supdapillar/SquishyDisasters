@@ -1,0 +1,138 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://CursorButton.cs" type="Script" id=1]
+[ext_resource path="res://Map.tscn" type="PackedScene" id=2]
+[ext_resource path="res://MainMenu.cs" type="Script" id=3]
+[ext_resource path="res://Squishy Battle/Buttons/Title/Title.png" type="Texture" id=4]
+[ext_resource path="res://Squishy Battle/Buttons/StartButton/StartHover.png" type="Texture" id=5]
+[ext_resource path="res://Squishy Battle/Buttons/StartButton/StartNorm.png" type="Texture" id=6]
+[ext_resource path="res://Squishy Battle/Buttons/StartButton/StartPressed.png" type="Texture" id=7]
+[ext_resource path="res://Squishy Battle/Buttons/PlayerCounter/3.png" type="Texture" id=10]
+[ext_resource path="res://Squishy Battle/Buttons/PlayerCounter/1.png" type="Texture" id=11]
+[ext_resource path="res://Squishy Battle/Buttons/PlayerCounter/4.png" type="Texture" id=12]
+[ext_resource path="res://Squishy Battle/Buttons/PlayerCounter/2.png" type="Texture" id=13]
+[ext_resource path="res://Squishy Battle/PICO-8 mono.ttf" type="DynamicFontData" id=14]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "0",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "4",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 14 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 7 ) ],
+"loop": false,
+"name": "Click",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "Hover",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "Normal",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 11.6863, 5.15549 )
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource( 3 )
+
+[node name="PlayerCounter" type="AnimatedSprite" parent="."]
+position = Vector2( 960, 960 )
+scale = Vector2( 12, 12 )
+frames = SubResource( 1 )
+animation = "0"
+
+[node name="Title" type="Sprite" parent="."]
+position = Vector2( 960, 174 )
+scale = Vector2( 12, 12 )
+texture = ExtResource( 4 )
+
+[node name="MenuMap" parent="." instance=ExtResource( 2 )]
+modulate = Color( 1, 1, 1, 0.501961 )
+scale = Vector2( 12, 12 )
+z_index = -6
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="SwampTile" parent="MenuMap" index="0"]
+tile_data = PoolIntArray( 0, 0, 65538, 6, 0, 3, 49, 0, 65538, 55, 0, 3, 65536, 0, 65536, 65537, 0, 131073, 65542, 0, 3, 65585, 0, 65536, 65586, 0, 131073, 65591, 0, 3, 131072, 0, 196611, 131073, 0, 65538, 131077, 0, 131072, 131078, 0, 65537, 131121, 0, 196611, 131122, 0, 65538, 131126, 0, 131072, 131127, 0, 65537, 196609, 0, 65536, 196610, 0, 196610, 196611, 0, 65539, 196612, 0, 196610, 196613, 0, 65537, 196614, 0, 196611, 196658, 0, 65536, 196659, 0, 196610, 196660, 0, 65539, 196661, 0, 196610, 196662, 0, 65537, 196663, 0, 196611, 262146, 0, 131075, 262195, 0, 131075, 393227, 0, 327682, 393228, 0, 327683, 393276, 0, 327682, 393277, 0, 327683, 458756, 0, 327680, 458757, 0, 327683, 458758, 0, 327682, 458760, 0, 327683, 458761, 0, 262147, 458762, 0, 0, 458763, 0, 131074, 458764, 0, 1, 458765, 0, 393216, 458766, 0, 327681, 458767, 0, 327680, 458805, 0, 327680, 458806, 0, 327683, 458807, 0, 327682, 458809, 0, 327683, 458810, 0, 262147, 458811, 0, 0, 458812, 0, 131074, 458813, 0, 1, 458814, 0, 393216, 458815, 0, 327681, 458816, 0, 327680, 524292, 0, 0, 524293, 0, 2, 524294, 0, 262144, 524295, 0, 262145, 524296, 0, 262146, 524297, 0, 131074, 524298, 0, 196609, 524300, 0, 196608, 524301, 0, 2, 524302, 0, 2, 524303, 0, 1, 524304, 0, 327683, 524305, 0, 327682, 524306, 0, 393216, 524341, 0, 0, 524342, 0, 2, 524343, 0, 262144, 524344, 0, 262145, 524345, 0, 262146, 524346, 0, 131074, 524347, 0, 196609, 524349, 0, 196608, 524350, 0, 2, 524351, 0, 2, 524352, 0, 1, 524353, 0, 327683, 524354, 0, 327682, 524355, 0, 393216, 589826, 0, 327681, 589827, 0, 327682, 589828, 0, 65538, 589839, 0, 196608, 589840, 0, 2, 589841, 0, 131074, 589842, 0, 1, 589875, 0, 327681, 589876, 0, 327682, 589877, 0, 65538, 589888, 0, 196608, 589889, 0, 2, 589890, 0, 131074, 589891, 0, 1, 655362, 0, 0, 655363, 0, 2, 655364, 0, 196609, 655378, 0, 3, 655411, 0, 0, 655412, 0, 2, 655413, 0, 196609, 655427, 0, 3, 720898, 0, 65538, 720914, 0, 3, 720947, 0, 65538, 720963, 0, 3 )
+
+[node name="SnowTile" parent="MenuMap" index="1"]
+show_collision = false
+tile_data = PoolIntArray( 17, 0, 393216, 18, 0, 196610, 30, 0, 3, 66, 0, 393216, 67, 0, 196610, 65554, 0, 65536, 65555, 0, 196611, 65556, 0, 131073, 65565, 0, 131072, 65566, 0, 65537, 65603, 0, 65536, 65604, 0, 196611, 65605, 0, 131073, 131091, 0, 262145, 131092, 0, 65536, 131093, 0, 196611, 131094, 0, 131073, 131099, 0, 131072, 131100, 0, 65539, 131101, 0, 65537, 131102, 0, 262147, 131140, 0, 262145, 131141, 0, 65536, 131142, 0, 196611, 196629, 0, 393216, 196630, 0, 65536, 196631, 0, 65539, 196632, 0, 196611, 196633, 0, 65539, 196634, 0, 196611, 196635, 0, 65537, 196636, 0, 262145, 196678, 0, 393216, 262166, 0, 262146, 262171, 0, 262146, 393245, 0, 327683, 458775, 0, 393219, 458777, 0, 393218, 458778, 0, 262144, 458781, 0, 327682, 458783, 0, 393217, 524311, 0, 0, 524312, 0, 131074, 524313, 0, 2, 524314, 0, 131074, 524315, 0, 2, 524316, 0, 2, 524317, 0, 131074, 524318, 0, 2, 524319, 0, 131074, 524320, 0, 1, 589847, 0, 196610, 589856, 0, 3, 589857, 0, 262144, 655383, 0, 65538, 655392, 0, 196608, 655393, 0, 1, 720919, 0, 196610, 720929, 0, 131075 )
+
+[node name="CaveTile" parent="MenuMap" index="2"]
+tile_data = PoolIntArray( 35, 0, 196610, 44, 0, 131075, 65571, 0, 65536, 65572, 0, 3, 65579, 0, 2, 65580, 0, 65537, 65581, 0, 458752, 131108, 0, 196608, 131114, 0, 2, 131115, 0, 65537, 131116, 0, 393219, 196643, 0, 393217, 196644, 0, 65536, 196645, 0, 196611, 196646, 0, 196611, 196647, 0, 196611, 196648, 0, 196611, 196649, 0, 196611, 196650, 0, 65537, 196651, 0, 458754, 262180, 0, 393219, 262183, 0, 327680, 262184, 0, 458753, 262186, 0, 458754, 327719, 0, 393216, 458792, 0, 393218, 458794, 0, 327682, 458795, 0, 262147, 458796, 0, 262146, 458797, 0, 458755, 524326, 0, 327681, 524327, 0, 0, 524328, 0, 131072, 524329, 0, 131074, 524330, 0, 262145, 524331, 0, 262145, 524332, 0, 262144, 524333, 0, 131074, 524334, 0, 1, 589860, 0, 327681, 589862, 0, 0, 589863, 0, 65539, 589870, 0, 65538, 589871, 0, 1, 655396, 0, 0, 655397, 0, 131072, 655398, 0, 65539, 655407, 0, 65538, 655408, 0, 1, 720932, 0, 196610, 720944, 0, 131075 )
+
+[node name="Platforms" parent="MenuMap" index="4"]
+tile_data = PoolIntArray( 458772, 0, 65539, 458822, 0, 65539, 524321, 0, 131073, 524322, 0, 131073, 524323, 0, 131074, 655358, 0, 196609, 655359, 0, 196609, 589824, 0, 196609, 589825, 0, 196609, 589826, 0, 196609, 589827, 0, 196609, 589872, 0, 196609, 589873, 0, 196609, 589874, 0, 196609, 589875, 0, 196609, 589876, 0, 196609, 655379, 0, 65537, 655380, 0, 65537, 655381, 0, 65537, 655382, 0, 65537, 655428, 0, 65537, 655429, 0, 65537, 655430, 0, 65537, 655431, 0, 65537 )
+
+[node name="AddPlayerLabel" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1280.0
+margin_bottom = -780.0
+rect_scale = Vector2( 3, 3 )
+custom_colors/font_color_shadow = Color( 0.501961, 0.501961, 0.501961, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 4
+custom_fonts/font = SubResource( 2 )
+text = "PRESS SPACE OR (A) TO ADD NEW PLAYER"
+align = 1
+valign = 2
+
+[node name="CursorButton" type="AnimatedSprite" parent="."]
+position = Vector2( 960, 540 )
+scale = Vector2( 12, 12 )
+frames = SubResource( 5 )
+animation = "Normal"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+PlayerNumber = -1
+
+[node name="Area2D" type="Area2D" parent="CursorButton"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CursorButton/Area2D"]
+position = Vector2( -0.169128, -0.0384102 )
+shape = SubResource( 4 )
+
+[connection signal="ButtonReleased" from="CursorButton" to="." method="_on_CursorButton_ButtonReleased"]
+[connection signal="area_entered" from="CursorButton/Area2D" to="CursorButton" method="_on_Area2D_area_entered"]
+[connection signal="area_exited" from="CursorButton/Area2D" to="CursorButton" method="_on_Area2D_area_exited"]
+
+[editable path="MenuMap"]

@@ -1,0 +1,89 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Squishy Battle/Disasters/Donut/Chunk1.png" type="Texture" id=1]
+[ext_resource path="res://Squishy Battle/Disasters/Donut/Chunk2.png" type="Texture" id=2]
+[ext_resource path="res://Squishy Battle/Disasters/Donut/Chunk3.png" type="Texture" id=3]
+[ext_resource path="res://Disasters/DonutChunk.cs" type="Script" id=4]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.48433, 1 )
+colors = PoolColorArray( 0.980392, 0.627451, 0.584314, 1, 0.980392, 0, 0.745098, 0.694118, 1, 1, 1, 0 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 2.0
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "3",
+"speed": 5.0
+} ]
+
+[sub_resource type="Gradient" id=5]
+offsets = PoolRealArray( 0, 0.282051, 0.552707, 1 )
+colors = PoolColorArray( 0.980392, 0.627451, 0.584314, 1, 0.980392, 0.627451, 0.584314, 1, 0.980392, 0, 0.745098, 1, 0, 0, 0, 0 )
+
+[node name="DonutChunk" type="KinematicBody2D"]
+scale = Vector2( 4, 4 )
+collision_layer = 4
+collision_mask = 0
+script = ExtResource( 4 )
+
+[node name="TrailParticles" type="CPUParticles2D" parent="."]
+amount = 4
+lifetime = 0.5
+local_coords = false
+emission_shape = 1
+emission_sphere_radius = 2.0
+direction = Vector2( 0, -1 )
+spread = 22.5
+gravity = Vector2( 0, 0 )
+initial_velocity = 20.0
+initial_velocity_random = 1.0
+angular_velocity = 720.0
+angular_velocity_random = 1.0
+scale_amount = 4.0
+color_ramp = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 3 )
+animation = "3"
+
+[node name="ExplosionParticles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 25
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.4
+local_coords = false
+emission_shape = 1
+emission_sphere_radius = 2.0
+direction = Vector2( 0, -1 )
+spread = 60.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 30.0
+initial_velocity_random = 1.0
+angular_velocity = 720.0
+angular_velocity_random = 1.0
+scale_amount = 4.0
+color_ramp = SubResource( 5 )

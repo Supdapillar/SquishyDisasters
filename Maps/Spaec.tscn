@@ -1,0 +1,334 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Squishy Battle/SpaceTileset.png" type="Texture" id=1]
+[ext_resource path="res://Squishy Battle/Platforms.png" type="Texture" id=2]
+[ext_resource path="res://Squishy Battle/Disasters/Donut/DonutTile.png" type="Texture" id=6]
+
+[sub_resource type="ConvexPolygonShape2D" id=123]
+points = PoolVector2Array( 0, 0, 8, 0, 8, 8, 0, 8 )
+
+[sub_resource type="ConvexPolygonShape2D" id=124]
+points = PoolVector2Array( 0, 0, 8, 0, 8, 8, 0, 8 )
+
+[sub_resource type="ConvexPolygonShape2D" id=125]
+points = PoolVector2Array( 0, 0, 8, 0, 8, 8, 0, 8 )
+
+[sub_resource type="ConvexPolygonShape2D" id=126]
+points = PoolVector2Array( 0, 0, 8, 0, 8, 8, 0, 8 )
+
+[sub_resource type="ConvexPolygonShape2D" id=127]
+points = PoolVector2Array( 0, 0, 8, 0, 8, 8, 0, 8 )
+
+[sub_resource type="ConvexPolygonShape2D" id=128]
+points = PoolVector2Array( 0, 0, 8, 0, 8, 8, 0, 8 )
+
+[sub_resource type="ConvexPolygonShape2D" id=129]
+points = PoolVector2Array( 0, 0, 8, 0, 8, 8, 0, 8 )
+
+[sub_resource type="ConvexPolygonShape2D" id=130]
+points = PoolVector2Array( 0, 0, 8, 0, 8, 8, 0, 8 )
+
+[sub_resource type="TileSet" id=117]
+0/name = "SpaceTileset.png 0"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 32, 56 )
+0/tile_mode = 2
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 8, 8 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 123 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 123 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 124 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 125 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 3, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 126 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 127 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 3, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 128 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 129 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 3, 4 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 130 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[sub_resource type="ConvexPolygonShape2D" id=103]
+points = PoolVector2Array( 0, 0, 8, 0, 8, 8, 0, 8 )
+
+[sub_resource type="TileSet" id=109]
+0/name = "DonutTile.png 0"
+0/texture = ExtResource( 6 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 8, 8 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 103 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 103 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[sub_resource type="ConvexPolygonShape2D" id=9]
+points = PoolVector2Array( 8, 4, 0, 4, 0, 0, 8, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=118]
+points = PoolVector2Array( 0, 0, 8, 0, 8, 4, 0, 4 )
+
+[sub_resource type="ConvexPolygonShape2D" id=119]
+points = PoolVector2Array( 0, 0, 8, 0, 8, 4, 0, 4 )
+
+[sub_resource type="ConvexPolygonShape2D" id=120]
+points = PoolVector2Array( 0, 0, 8, 0, 8, 4, 0, 4 )
+
+[sub_resource type="ConvexPolygonShape2D" id=121]
+points = PoolVector2Array( 0, 0, 8, 0, 8, 4, 0, 4 )
+
+[sub_resource type="TileSet" id=122]
+0/name = "Platforms.png 0"
+0/texture = ExtResource( 2 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 32, 32 )
+0/tile_mode = 2
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 8, 8 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 9 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 9 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 9 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 9 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 3, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 9 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 9 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 9 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 9 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 3, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 9 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 9 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 9 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 9 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 3, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 9 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 9 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 9 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 9 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 3, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 9 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+1/name = "Platforms.png 1"
+1/texture = ExtResource( 2 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 32, 32, 8 )
+1/tile_mode = 2
+1/autotile/icon_coordinate = Vector2( 0, 0 )
+1/autotile/tile_size = Vector2( 8, 8 )
+1/autotile/spacing = 0
+1/autotile/occluder_map = [  ]
+1/autotile/navpoly_map = [  ]
+1/autotile/priority_map = [  ]
+1/autotile/z_index_map = [  ]
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 118 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 1, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 118 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 119 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 3, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 120 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 121 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+
+[node name="Spaec" type="Node2D"]
+scale = Vector2( 4, 4 )
+z_index = -6
+
+[node name="SpaceTile" type="TileMap" parent="."]
+tile_set = SubResource( 117 )
+cell_size = Vector2( 8, 8 )
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 852019, 536870912, 327682, 917506, 0, 131073, 917555, 536870912, 393218, 983042, 536870912, 65537, 983043, 536870912, 65536, 983091, 536870912, 327680, 983092, 0, 196610, 1048578, 1073741824, 65536, 1048579, 1073741824, 65537, 1048580, 536870912, 262147, 1048623, 536870912, 327680, 1048624, 0, 196610, 1048625, 536870912, 327681, 1048626, 0, 65536, 1048627, 536870912, 0, 1048628, 0, 65537, 1048629, 536870912, 327681, 1048630, 0, 196610, 1048631, 0, 327680, 1114112, 536870912, 262146, 1114114, 536870912, 131074, 1114116, 536870912, 262145, 1114138, 0, 327680, 1114159, 0, 65536, 1114160, 536870912, 1, 1114161, 536870912, 2, 1114162, 0, 65538, 1114164, -1610612736, 65538, 1114165, 536870912, 0, 1114166, 536870912, 3, 1114167, 0, 65537, 1179674, 0, 65536, 1179675, 0, 65537, 1179694, 0, 262147, 1179695, -2147483648, 1, 1179703, -1610612736, 1, 1245195, 0, 131072, 1245210, -1073741824, 1, 1245211, -1610612736, 65538, 1245212, 0, 65537, 1245213, 536870912, 262147, 1245230, 0, 327683, 1245231, -2147483648, 2, 1245239, -1610612736, 1, 1310730, 0, 327681, 1310731, 0, 196608, 1310732, 0, 327680, 1310746, 1610612736, 65537, 1310747, 1610612736, 1, 1310748, 1610612736, 65536, 1310749, 536870912, 196611, 1310767, -1073741824, 65536, 1310768, -1073741824, 65538, 1310773, 1610612736, 65538, 1310774, 1073741824, 0, 1310775, 1073741824, 65537, 1376265, 0, 65536, 1376266, 536870912, 2, 1376267, 536870912, 1, 1376268, 0, 65537, 1376283, 536870912, 131075, 1376284, 536870912, 131074, 1376293, 0, 262144, 1376304, -1073741824, 65536, 1376305, 1073741824, 2, 1376306, 1073741824, 0, 1376307, 1073741824, 0, 1376308, 1073741824, 3, 1376309, -1610612736, 65537, 1441792, 0, 196609, 1441794, 0, 327680, 1441795, 0, 327681, 1441800, 0, 65536, 1441801, 0, 65538, 1441804, -1610612736, 65538, 1441805, 0, 65537, 1441812, 0, 327681, 1441813, 0, 131073, 1441829, 0, 196610, 1441840, 0, 131074, 1441845, 0, 131075, 1507328, 536870912, 0, 1507329, 536870912, 1, 1507330, 536870912, 2, 1507331, 536870912, 3, 1507332, 0, 65537, 1507336, -1073741824, 0, 1507341, -1610612736, 0, 1507346, 0, 196610, 1507347, 0, 327680, 1507348, 0, 65536, 1507349, 536870912, 2, 1507350, 536870912, 3, 1507351, 0, 65537, 1507353, 0, 196609, 1507355, 0, 327681, 1507356, 0, 327680, 1507362, 0, 65536, 1507363, 536870912, 3, 1507364, 536870912, 1, 1507365, 536870912, 0, 1507366, 536870912, 1, 1507367, 0, 65537, 1507386, 0, 131073, 1572868, -1610612736, 65538, 1572869, 0, 65537, 1572872, -1073741824, 2, 1572877, -1610612736, 1, 1572882, 0, 65536, 1572883, 536870912, 3, 1572884, 0, 65538, 1572887, -1610612736, 65538, 1572888, 536870912, 0, 1572889, 536870912, 1, 1572890, 536870912, 0, 1572891, 536870912, 1, 1572892, 536870912, 3, 1572893, 0, 65537, 1572897, 0, 65536, 1572898, -2147483648, 65538, 1572903, 536870912, 65538, 1572904, 0, 65537, 1572922, 0, 65536, 1572923, 536870912, 2, 1638405, -1610612736, 0, 1638408, -1073741824, 1, 1638413, -1610612736, 0, 1638414, 536870912, 262147, 1638417, 0, 65536, 1638418, 0, 65538, 1638429, -1610612736, 2, 1638433, -2147483648, 0, 1638440, 536870912, 65538, 1638441, 536870912, 1, 1638442, 536870912, 0, 1638443, 0, 65537, 1638444, 0, 131072, 1638457, 0, 65536, 1638458, 0, 65538, 1703941, -1610612736, 0, 1703944, -1073741824, 2, 1703949, -536870912, 65539, 1703950, 536870912, 327683, 1703953, -1073741824, 2, 1703965, -1610612736, 65538, 1703966, -1610612736, 65536, 1703969, -2147483648, 1, 1703979, -1610612736, 1, 1703980, 0, 196608, 1703983, 0, 131072, 1703993, -1073741824, 2, 1769477, -536870912, 65539, 1769480, -1073741824, 1, 1769488, 0, 262147, 1769489, -1073741824, 1, 1769502, -1610612736, 1, 1769505, -2147483648, 0, 1769515, -1610612736, 65538, 1769516, 0, 65537, 1769519, 0, 196608, 1769521, 0, 196609, 1769522, 0, 327681, 1769523, 0, 327680, 1769529, -1073741824, 2, 1835016, -1073741824, 65539, 1835024, 0, 327683, 1835025, -1073741824, 0, 1835038, -1610612736, 2, 1835039, 0, 196611, 1835041, -1073741824, 65536, 1835042, -1073741824, 65538, 1835052, -1610612736, 0, 1835055, 0, 65536, 1835056, 536870912, 2, 1835057, 536870912, 1, 1835058, 536870912, 0, 1835059, 0, 65537, 1835065, -1073741824, 65539, 1900561, -1073741824, 3, 1900574, -536870912, 65539, 1900578, -1073741824, 2, 1900588, -536870912, 1, 1900591, -1073741824, 2, 1900595, -1610612736, 1, 1900596, 0, 327680, 1966097, -1073741824, 65539, 1966114, -2147483648, 1, 1966124, -536870912, 2, 1966127, -1073741824, 0, 1966131, -1610612736, 65538, 1966132, -1610612736, 65536, 1966133, 0, 327682, 2031649, 0, 262147, 2031650, -2147483648, 2, 2031660, -536870912, 65539, 2031663, -1073741824, 65539, 2031668, -536870912, 2, 2031669, 0, 393218, 2097185, 0, 393216, 2097186, -1073741824, 65539, 2097204, -536870912, 0, 2097210, 0, 196611, 2162721, 0, 393217, 2162740, -536870912, 65539 )
+
+[node name="ExtraTiles" type="TileMap" parent="."]
+tile_set = SubResource( 109 )
+cell_size = Vector2( 8, 8 )
+collision_mask = 0
+format = 1
+
+[node name="Platforms" type="TileMap" parent="."]
+tile_set = SubResource( 122 )
+cell_size = Vector2( 8, 8 )
+collision_layer = 16
+collision_mask = 0
+navigation_layers = 0
+format = 1
+tile_data = PoolIntArray( 1310762, 1, 0, 1310763, 1, 1, 1310764, 1, 2, 1703991, 1, 0, 1703992, 1, 1, 2031673, 1, 0, 2031674, 1, 2 )
