@@ -1,2 +1,4 @@
 # SquishyDisasters
- A small game im working on to learn godot
+A smaller game I worked on to teach myself the godot engine.
+
+The game is pretty much finished other than a few bugs and sound.
